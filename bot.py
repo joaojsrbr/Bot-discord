@@ -12,7 +12,7 @@ with open('config.json') as f:
     data = json.load(f)
     token = data["TOKEN"]
     prefix = data["PREFIX"]
-
+    url = data["URL"]    
 
 bot = commands.Bot(prefix)
 
@@ -24,7 +24,7 @@ async def on_ready():
 @bot.command(name="list")
 async def send_lastlist(ctx):
                 
-        url = "https://neoxscans.net/?s&post_type=wp-manga&m_orderby=latest"
+        
         headers ={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36"}
         req = Request(url,headers=headers)
         response = urlopen(req)
@@ -54,7 +54,7 @@ async def send_lastlist(ctx):
 @tasks.loop(minutes=20)
 async def current_manga():
                 
-        url = "https://neoxscans.net/?s&post_type=wp-manga&m_orderby=latest"
+        
         headers ={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36"}
         req = Request(url,headers=headers)
         response = urlopen(req)
