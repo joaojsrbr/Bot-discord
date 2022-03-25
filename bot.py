@@ -8,6 +8,13 @@ from bs4 import BeautifulSoup
 urln = "https://neoxscans.net/wp-content/uploads/2021/05/cropped-neoxscans-270x270.png"
 
 #Crie um arquivo config.json
+#   {
+#	"TOKEN": "",
+#       "PREFIX": "!!",
+#	"URL": "https://neoxscans.net/?s&post_type=wp-manga&m_orderby=latest",
+#	"USER_AGENT": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36"
+#   }
+##############################
 with open('config.json') as f:
     data = json.load(f)
     token = data["TOKEN"]
