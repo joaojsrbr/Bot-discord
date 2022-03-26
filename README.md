@@ -2,10 +2,13 @@
 ## REQUIRED
 ```
  Python 3.5.3 or higher
+ Discord.py = pip install -U discord.py
+ BeautifulSoup = pip install beautifulsoup4
 ```
 ## Setup
 ```
 Python bot.py
+
 ```
 ## Crie um arquivo config.json
 ```
