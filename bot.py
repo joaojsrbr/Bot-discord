@@ -40,10 +40,9 @@ async def list(ctx, *expression,):
         i=0
         m=0
         expression = "".join(expression)    
-        m = m + eval(expression)
-
+        m = eval(expression)
+    
         
-          
         
 
         for i in range(0,int (m)):
@@ -83,7 +82,7 @@ async def list(ctx, *expression,):
                 #Scraping Gênero
                 genre = soup1.find('div', class_="genres-content").get_text( ).lstrip()
 
-                 #Scraping Tipo
+                #Scraping Tipo
                 try:
                   tipo3cc = soup1.find('div', class_="post-title").span.get_text().lstrip()
                 except AttributeError:
@@ -141,11 +140,13 @@ async def list(ctx, *expression,):
                         url=ftb['data-src']
                 )
                 
+                await ctx.author.send(embed=embed)
 
                 
 @tasks.loop(minutes=30)
 async def current_manga():
-                
+
+        
         channel = bot.get_channel(956642152195194882)
         headers = {"User-Agent": User_Agent}        
         req = Request(url,headers=headers)
@@ -155,11 +156,11 @@ async def current_manga():
 
 
         i=0
-        m=5
-        
+        m=3
+
 
         for i in range(0,int (m)):
-        
+                
                 #Scraping lista de tudo da página
                 tabsitens = soup.find_all('div', class_="row c-tabs-item__content")
                 itens = tabsitens[i]
